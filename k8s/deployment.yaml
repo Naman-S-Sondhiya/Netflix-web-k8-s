@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflix-app
+  namespace: applicant
+spec:
+  selector:
+    matchLabels:
+      app: netflix-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: netflix-app
+    spec:
+      containers:
+      - name: netflix-app
+        image: docker.io/namanss/netflix-clone:latest
+        ports:
+        - containerPort: 5000
